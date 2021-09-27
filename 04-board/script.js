@@ -7,6 +7,7 @@ for (let i = 0; i < SQERE_ITEMS; i++) {
    squere.classList.add('squere')
 
    squere.addEventListener('mouseover', () => {
+
       setColor(squere)
    })
 
@@ -22,8 +23,13 @@ for (let i = 0; i < SQERE_ITEMS; i++) {
 
 const setColor = (e) => {
    const color = getRandomColors(colors)
-   e.style.backgroundColor = color
-   e.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
+   console.log(e.style.backgroundColor)
+   if (e.style.backgroundColor === '' || 'rgb(29, 29, 29)') {
+      e.style.backgroundColor = color
+      e.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
+   } else {
+      e.style.backgroundColor = '#1d1d1d'
+   }
 }
 
 const deleteColor = (e) => {
